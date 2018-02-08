@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<script src="angular.min.js"></script>
+<script>
+var app=angular.module("myApp", [ ]);
+app.controller('myCtrl',function($scope)
+{
+$scope.firstname="MONISHA ";
+$scope.lastname="UMAMAHESWARAN ";
+$scope.message=" ";
+$scope.gender="male ";
+$scope.gender=" female";
+$scope.dept=" ";
+$scope.country=" ";
+$scope.getvalues=function()
+{
+ alert("done");
+$scope.details=true;
+return $scope.data=$scope.firstname+$scope.lastname+$scope.message+$scope.gender+$scope.dept+$scope.country;
+}
+});
+</script>
+<br><br>
+<head>
+<title>REGISTRATION FORM</title>
+</head>
+<body>
+<CENTER>
+<form>
+<h1 style="color:tomato;">REGISTRATION FORM</h1></center>
+<div ng-app="myApp" ng-controller="myCtrl">
+first name: <input type="text" ng-model="firstname">
+<br><br>
+last name: <input type ="text" ng-model="lastname">
+<br><br>
+ADDRESS:<br>
+<textarea name="message" rows="3" cols="20" required ng-model="message">
+</textarea>
+<br><br>
+GENDER:<br>
+<input type="radio" ng-model="gender" value="male">male<br><br>
+<input type="radio" ng-model="gender" value="female">female
+<br><br>
+COURSE:<br>
+<select  ng-model="dept">
+<option  value="IT">IT
+<option  value="CSE">CSE
+<option  value="BME">BME
+<option  value="ECE">ECE
+</select>
+<br><br>
+COUNTRY:<br>
+select a country:<br>
+<select ng-model="country">
+<option value="INDIA">INDIA
+<option value="CANADA">CANADA
+<option value="ITALY">ITALY
+<option value="CHINA">CHINA
+</select>
+<center>
+<button type="button" ng-click="getvalues();">SUBMIT</button>
+<button type="button" onclick="alert('cancelled')">CANCEL</button>
+</center>
+<div> ng-show="details"
+view ur {{data}}
+</div>
+</div>
+</body>
+</html>
+
+
