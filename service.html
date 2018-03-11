@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>SERVICE</title>
+<script src="angular.min.js"></script>
+<script>
+angular.module('myservice',[]).service('loginvalid',function(){
+    this.validate=function(x,y){
+	  if(x == "admin" && y == "admin"){ return true; } else { return false; }
+	};
+}).controller('One',function($scope,$rootScope, loginvalid){
+  $scope.login=function(){
+    var check=loginvalid.validate($scope.Usname,$scope.password);
+	alert(check);
+	}
+}).controller('Two',function($scope,$rootScope, loginvalid) 
+});
+	
+</script>
+<body ng-app="myservice">
+<div ng-controller="One" ng-show="login">
+Username:<input type="text" ng-model="Usname" ><br>
+Password:<input type="password" ng-model="password"><br>
+<!--<input type="submit" ng-click="login()">-->
+<button ng-click="login()">Login</button>
+</div>
+<div ng-controller="Two" ng-show="home">
+
+
+</div>
+</body>
+</html>
